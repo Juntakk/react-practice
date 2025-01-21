@@ -1,15 +1,7 @@
 import React, { useState } from "react";
 
-const Test6 = () => {
+const Test6 = ({ users }) => {
   const [searchValue, setSearchValue] = useState("");
-  const items = [
-    "Potato",
-    "Watermelon",
-    "Papaya",
-    "Artichoke",
-    "Chicken",
-    "Parmesan",
-  ];
 
   return (
     <div>
@@ -23,10 +15,12 @@ const Test6 = () => {
         className="items"
         style={{ display: "flex", flexDirection: "column" }}
       >
-        {items
-          .filter((item) => item.toLowerCase().includes(searchValue))
+        {users
+          .filter((item) =>
+            item.name.toLowerCase().includes(searchValue.toLowerCase())
+          )
           .map((item, key) => (
-            <span key={key}>{item}</span>
+            <span key={key}>{item.name}</span>
           ))}
       </div>
     </div>

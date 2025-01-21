@@ -1,19 +1,23 @@
 import React, { useState } from "react";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
-const Test2 = () => {
+const Test2 = ({ setUsers }) => {
   const [user, setUser] = useState(localStorage.getItem("user") || null);
+
   const [isLoading, setIsLoading] = useState(false);
 
   async function fetchUser() {
     setIsLoading(true);
     try {
       const response = await fetch(
-        "https://jsonplaceholder.typicode.com/users/4"
+        "https://jsonplaceholder.typicode.com/users"
       );
       const json = await response.json();
-      setUser(json.name);
-      localStorage.setItem("user", json.name);
+
+      setUser(json[0].name);
+      setUsers(JSON.stringify);
+      localStorage.setItem("user", json[0].name);
+      localStorage.setItem("users", JSON.stringify(json));
     } catch (error) {
       console.error("Failed to fetch user:", error);
     } finally {

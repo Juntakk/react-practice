@@ -19,6 +19,13 @@ function App() {
     setColor(color === "blue" ? "pink" : "blue");
   };
 
+  //Test6
+  const [users, setUsers] = useState(
+    JSON.parse(localStorage.getItem("users")) || null
+  );
+  console.log(localStorage.getItem("users"));
+  console.log(JSON.parse(localStorage.getItem("users")));
+
   return (
     <div
       className="App"
@@ -28,7 +35,7 @@ function App() {
       }}
     >
       <Test1 />
-      <Test2 />
+      <Test2 setUsers={setUsers} />
       <Test3 setDarkMode={setDarkMode} darkMode={darkMode} />
       <Test4 bloobli={functionToPass} />
       <div
@@ -42,7 +49,7 @@ function App() {
         }}
       ></div>
       <Test5 />
-      <Test6 />
+      <Test6 users={users} />
     </div>
   );
 }
