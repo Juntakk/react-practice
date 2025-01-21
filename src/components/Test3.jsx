@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 const Test3 = ({ setDarkMode, darkMode }) => {
   const handleDarkMode = () => {
@@ -14,4 +14,4 @@ const Test3 = ({ setDarkMode, darkMode }) => {
   );
 };
 
-export default Test3;
+export default memo(Test3);

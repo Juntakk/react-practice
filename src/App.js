@@ -21,7 +21,7 @@ function App() {
 
   //Test6
   const [users, setUsers] = useState(
-    JSON.parse(localStorage.getItem("users")) || null
+    JSON.parse(localStorage.getItem("users")) || []
   );
   console.log(localStorage.getItem("users"));
   console.log(JSON.parse(localStorage.getItem("users")));

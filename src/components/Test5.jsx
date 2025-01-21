@@ -8,7 +8,6 @@ const Test5 = () => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     setIsSubmitted(true);
-    console.log(`Name: ${name}, Email: ${email}`);
   };
 
   return (

@@ -1,7 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Test6 = ({ users }) => {
   const [searchValue, setSearchValue] = useState("");
+  const [debouncedValue, setDebouncedValue] = useState("");
+
+  useEffect(() => {
+    setTimeout(() => {
+      setDebouncedValue(searchValue);
+    }, 300);
+  }, [searchValue]);
 
   return (
     <div>
@@ -17,7 +24,7 @@ const Test6 = ({ users }) => {
       >
         {users
           .filter((item) =>
-            item.name.toLowerCase().includes(searchValue.toLowerCase())
+            item.name.toLowerCase().includes(debouncedValue.toLowerCase())
           )
           .map((item, key) => (
             <span key={key}>{item.name}</span>

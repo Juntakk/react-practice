@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 const Test2 = ({ setUsers }) => {
-  const [user, setUser] = useState(localStorage.getItem("user") || null);
+  const [user, setUser] = useState(localStorage.getItem("user") || "");
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -15,9 +15,10 @@ const Test2 = ({ setUsers }) => {
       const json = await response.json();
 
       setUser(json[0].name);
-      setUsers(JSON.stringify);
       localStorage.setItem("user", json[0].name);
-      localStorage.setItem("users", JSON.stringify(json));
+
+      // setUsers(JSON.stringify);
+      // localStorage.setItem("users", JSON.stringify(json));
     } catch (error) {
       console.error("Failed to fetch user:", error);
     } finally {
