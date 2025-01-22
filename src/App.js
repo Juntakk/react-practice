@@ -6,6 +6,8 @@ import Test3 from "./components/Test3";
 import Test4 from "./components/Test4";
 import Test5 from "./components/Test5";
 import Test6 from "./components/Test6";
+import Test7 from "./components/Test7";
+import { useUserContext } from "./contexts/UserContext";
 
 function App() {
   //Test3
@@ -19,12 +21,8 @@ function App() {
     setColor(color === "blue" ? "pink" : "blue");
   };
 
-  //Test6
-  const [users, setUsers] = useState(
-    JSON.parse(localStorage.getItem("users")) || []
-  );
-  console.log(localStorage.getItem("users"));
-  console.log(JSON.parse(localStorage.getItem("users")));
+  //Test7
+  const { users, setUsers } = useUserContext();
 
   return (
     <div
@@ -50,6 +48,7 @@ function App() {
       ></div>
       <Test5 />
       <Test6 users={users} />
+      <Test7 />
     </div>
   );
 }
